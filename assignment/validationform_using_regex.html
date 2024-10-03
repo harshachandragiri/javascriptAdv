@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validation() {
+            let regName = /^[a-z A-Z]+$/;
+            let regEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+            let regpassword = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+            let regphone = /^[0-9\-\+]{10,}$/;
+
+
+            let name = document.getElementById("name").value;
+
+            let email = document.getElementById("email").value;
+
+            let pword = document.getElementById("passwordid").value;
+            let phone = document.getElementById("phone").value;
+
+            let file = document.getElementById('upload').files[0];
+            let type = file.type;
+            let size = file.size;
+            let v = type.split("/");
+            count = 0;
+            let gender = document.getElementsByName("gender");
+            for (let i = 0; i < gender.length; i++) {
+                if (gender[i].checked == true) {
+                    count++
+                }
+            }
+            console.log(count);
+
+            counts = 0
+            let subject = document.getElementsByName("subject");
+            for (let i = 0; i < subject.length; i++) {
+                if (subject[i].checked == true) {
+                    counts++
+                }
+            }
+
+            if (!regName.test(name)) {
+                alert("please enter your name");
+                document.getElementById("name").focus();
+            } else if (!regEmail.test(email)) {
+                alert("Please enter your mail");
+                document.getElementById("email").focus();
+            } else if (!regphone.test(phone)) {
+                alert("please enter your number")
+                document.getElementById("phone").focus();
+            }
+            else if (!regpassword.test(pword)) {
+                alert("Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character");
+                document.getElementById("passwordid").focus();
+
+            } else if (count === 0) {
+                alert("select gender");
+            } else if (counts < 2) {
+                alert("Select atleast 2 subjects");
+            }else{
+                return true;
+            }
+
+
+        // console.log(counts);
+
+
+        return false;
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>VALIDATION FORM</h1>
+    </center>
+    <form enctype="multipart/form-data" onsubmit="return validation()" autocomplete="off">
+        <table align="center" border=1 cellspacing="0" cellpadding="5px" width="50%" height="80%">
+            <tr>
+                <th colspan="2">RegistrationForm</th>
+            </tr>
+            <tr>
+                <td>
+                    NAME:
+                </td>
+                <td>
+                    <input type="text" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email:
+                </td>
+                <td>
+                    <input type="email" id="email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Phone number:
+                </td>
+                <td>
+                    <input type="text" id="phone">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td>
+                    <input type="password" id="passwordid">
+                </td>
+            </tr>
+            <tr>
+                <td>gender:</td>
+                <td><input type="radio" name="gender" value="gender" class="gender"> Male
+                    <input type="radio" name="gender" value="gender" class="gender"> Female
+
+                </td>
+            </tr>
+            <tr>
+                <td>Subject:</td>
+                <td><input type="Checkbox" name="subject" value="HTML" class="subject"> HTML
+                    <input type="Checkbox" name="subject" value="JAVASCRIPT" class="subject"> JAVASCRIPT
+                    <input type="Checkbox" name="subject" value="CSS" class="subject"> CSS
+                </td>
+                <!-- <input type="radio" name="gender" value="gender"> FeMale -->
+            </tr>
+            <tr>
+                <td>
+                    Image:
+                </td>
+                <td>
+                    <input id="upload" type="file">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="right"><input type="submit" name="submit" value="submit">&nbsp;<input
+                        type="Reset" name="Reset" value="Reset"></td>
+            </tr>
+
+        </table>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validation6</title>
+    <script>
+        function validate(){
+            var v =document.getElementById("txtid").value;
+            document.getElementById("sid").innerHTML=v.replace(/h/gi,"nithin");
+        
+        }
+    </script>
+    
+
+</head>
+<body>
+    <input type="text" id="txtid" onkeyup="validate()"><span id="sid"></span>
+    
+</body>
+</html>

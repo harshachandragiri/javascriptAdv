@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>password validation</title>
+    <script>
+        function validation(){
+        var a=document.getElementById('pid').value;
+        var span=document.getElementById('sid').innerHTML=a;;
+        // span
+        var l=a.length;
+        if(l<3){
+            span.style.color="red";
+
+        }else if(l>3 && l<8) {
+            span.style.color="blue"
+
+        }else{
+            span.style.color="green"
+        }
+    
+    }
+    function validation2(){
+            var b=document.getElementById('cpid').value;
+            var a=document.getElementById('pid').value;
+            if(a==b){
+                csid.innerHTML="success"
+                
+
+            }else{
+                csid.innerHTML="password not match"
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <p> Password:<input type="password" id="pid" autofocus onkeyup="validation()"><span id="sid"></span> </p>
+    <p> Confirm Password:<input type="password" id="cpid" onkeyup="validation2()">  <span id="csid"></span>  </p>
+</body>
+</html>

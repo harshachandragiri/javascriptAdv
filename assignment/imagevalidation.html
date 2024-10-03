@@ -1,0 +1,21 @@
+<script>
+    function verify() {
+        var file = document.getElementById('upload').files[0];
+        var type = file.type;
+        console.log(file);
+        var v = type.split("/");
+        if(v[0] === 'image') {
+            if(['png','PNG','jpeg','JPEG'].indexOf(v[1]) >= 0) {
+                alert("Success")
+            }else {
+                alert("Only PNG and JPEG format are allowed");
+            }
+        }else {
+            alert("Only Images are allowed");
+        }
+    }
+</script>
+<form enctype="multipart/form-data">
+    <input id="upload" type="file">
+    <button type="button" onclick="verify()">Submit!</button>
+</form>

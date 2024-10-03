@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var value = localStorage.getItem('obj');
+            var json = JSON.parse(value);
+            for (key in json) {
+                document.getElementById("tabId").innerHTML += "<tr id=nameId><td>" + json[key].name + "</td><td>" + json[key].email + "</td><td><button onclick=del()>delelte</button></td></tr>";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table border="1" cellspacing="0" width="50%" align="center" id="tabId">
+        <tr>
+            <th colspan="3">localstorage</th>
+        </tr>
+        <tr>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>delete</th>
+        </tr>
+    </table>
+</body>
+
+</html>

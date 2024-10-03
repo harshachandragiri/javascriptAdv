@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    const data = [];
+
+    function validation(){
+    let name=document.getElementById("nameId").value;
+    let email=document.getElementById("emailId").value;
+   
+    const d = {
+        name,
+        email
+    }
+    data.push(d);
+    let str = JSON.stringify(data);
+    localStorage.setItem('obj', str);
+   
+    }
+    </script>
+</head>
+<body>
+    <input type="text" placeholder="name" id="nameId">
+    <input type="text" placeholder="email" id="emailId">
+    <input type="button" value="Enter" onclick="validation()">
+    
+</body>
+</html>

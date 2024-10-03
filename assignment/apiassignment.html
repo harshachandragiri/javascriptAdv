@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let API = "https:api.github.com/users/muhammed786";
+        let users = {}
+        async function handlPromise(user){
+            console.log(users);
+            if (user in users) {
+                console.log(users[user]);
+            } else {
+                let data = await fetch(API)
+                let json = await data.json();
+                users[user] = json;
+                console.log(json);
+            }
+        }
+        handlPromise();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

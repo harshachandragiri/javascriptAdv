@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <script>
+        function validate(){
+            var v=document.getElementById("nameid").value;
+            if (v==""){
+                alert("please enter name")
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <h1> REGISTRATION FORM </h1>
+    <table >
+        <tr border="1" cellpadding="10" >
+            <td>Name:</td>
+            <td><input type="text" id="nameid"> </td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="email"> </td>
+        </tr>
+        <tr>
+            <td>password:</td>
+            <td><input type="password"> </td>
+        </tr>
+        <tr>
+            <td>Subject:</td>
+            <td><input type="radio">male <input type="radio"> female </td>
+            
+        </tr>
+        <tr>
+            <td>Subject:</td>
+            <td><input type="checkbox"> phy <input type="checkbox"> js <input type="checkbox"> HTML</td>
+            
+        </tr>
+        <tr>
+            <td>      </td>
+            <td><button onclick="validate()">Submit</button></td>
+        </tr>
+        
+    </table>
+    
+</body>
+</html>

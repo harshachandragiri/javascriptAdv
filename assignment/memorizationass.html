@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        const apiCache = {};
+
+
+        function getApiDataFromCache(url) {
+            return apiCache[url] || null;
+        }
+
+
+        function storeApiDataInCache(url, data) {
+            apiCache[url] = data;
+        }
+
+
+        function fetchApiData(url) {
+            const cachedData = getApiDataFromCache(url);
+
+            if (cachedData) {
+
+                console.log('API data retrieved from cache:', cachedData);
+                return Promise.resolve(cachedData);
+            } else {
+
+                return fetch(url)
+                    .then(response => response.json())
+                    .then((jsonData) => {
+                        storeApiDataInCache(url, jsonData);
+
+                        console.log('API data fetched and stored in cache:', jsonData);
+                        return jsonData;
+                    });
+            }
+        }
+
+        const apiUrl = "https://api.github.com/users/mohammed786";
+
+
+        fetchApiData(apiUrl).then((apiData) => {
+            console.log('Using API data:', apiData);
+
+        });
+        fetchApiData(apiUrl).then((apiData) => {
+            console.log('Using API data:', apiData);
+
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validation() {
+            let name = document.getElementById("nameid").value;
+            let regName = /^[a-z A-Z]+$/;
+            let file = document.getElementById("filesid").files;
+            let x = file.length;
+            count = 0;
+            counts = 0;
+            console.log(file.type);
+            if (name == ' ') {
+                alert("please enter your name");
+                document.getElementById("nameid").focus();
+            } 
+            else if (!regName.test(name)) {
+                alert("please enter your name");
+                document.getElementById("nameid").focus();
+            }
+            else if (file === undefined){
+                alert("please upload image");
+            }
+            else if(file !== undefined){
+                for (let i = 0; i < x; i++) {
+                    let z = file[i];
+                     console.log(z);
+                    let types = z.type;
+                    console.log(types);
+                    let splitting = types.split("/");
+                    console.log(splitting);
+                    if (splitting[0] === 'image') {
+                        if (['png', 'jpeg', 'jpg', 'PNG', 'JPEG', 'JPG'].indexOf(splitting[1]) >= 0) {
+                            count++;
+                        } else {
+                            counts++;
+                        }
+            
+                    }
+                    // else {
+                    //     alert("only images are allowed")
+                    // }
+
+                } 
+                if (counts > 0) {
+                    alert("please select only images")
+
+                }else if(count==counts){
+                    alert("please select Images")
+
+                }
+                else{
+                    alert("success")
+                }
+                // else{
+                //     alert("please select image ")
+                // }
+                
+            }
+            else{
+                alert();
+            }
+        }
+
+
+        
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>FORM VALIDATION</h1>
+    </center>
+    <form enctype="multipart/form-data"  autocomplete="off">
+        <table align="center" border=1 cellspacing="0" cellpadding="5px" width="50%" height="80%">
+            <th colspan="2">
+                Registration Form
+            </th>
+            <tr>
+                <td>
+                    Name:
+                </td>
+                <td><input type="text" id="nameid" </td>
+            </tr>
+            <tr>
+                <td>Image </td>
+                <td><input type="file" multiple id="filesid" </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    <button type="button" onclick="validation()">Submit</button> <button type="reset"> Reset</button>
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+
+</body>
+
+</html>

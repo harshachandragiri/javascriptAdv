@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function valid() {
+            let name = document.getElementById("nameId").value;
+            let email = document.getElementById("emailId").value;
+            const data1 = localStorage.getItem("data");
+            const j = JSON.parse(data1)
+            const data = j || [];
+            const d = {
+                name,
+                email
+            }
+            if (data.length > 0) {
+                data.find((element) => {
+                    if (element.name === name && element.email === email) {
+                        alert("Already Exists");
+                    } else {
+                        data.push(d);
+                        let str = JSON.stringify(data);
+                        localStorage.setItem('data', str);
+                    }
+                })
+            } else {
+                data.push(d);
+                let str = JSON.stringify(data);
+                localStorage.setItem('data', str);
+            }
+            window.location.href = 'changedlocation.html'
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" placeholder="name" id="nameId">
+    <input type="text" placeholder="email" id="emailId">
+    <input type="button" value="Enter" onclick="valid()">
+    <a href="./changedlocation.html">next page</a>
+</body>
+
+</html>

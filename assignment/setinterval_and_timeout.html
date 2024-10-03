@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var callingfunction;
+    var callingfunction1;
+    count=0;
+    
+    function callFunction(){
+        callingfunction=setInterval(myfunction,1000)
+        callingfunction1=setTimeout(myfunction1,5000)
+
+    }
+    function myfunction(){
+        console.log(count++)
+
+    }
+    function myfunction1(){
+        alert("yes")
+
+    }
+    function stopFunction(){
+        clearInterval(callingfunction);
+        clearTimeout(callingfunction1);
+
+
+
+
+
+        
+    }
+
+</script>
+<body>
+    <button onclick="callFunction()">Start!</button>
+    <button onclick="stopFunction()">Stop.. </button>
+    
+    
+</body>
+</html>

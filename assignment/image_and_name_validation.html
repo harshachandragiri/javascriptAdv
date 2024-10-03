@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validation() {
+            let regName = /^[a-z A-Z]+$/;
+
+            let name = document.getElementById("nameid").value;
+            let file = document.getElementById('upload').files[0];
+            // let x = file.length;
+            console.log(file);
+            // let type = file.type;
+            // let size = file.size;
+            // let v = type.split("/");
+
+
+            if (name == ' ') {
+                alert("please enter your name");
+                document.getElementById("nameid").focus();
+            } else if (!regName.test(name)) {
+                alert("please enter your name");
+                document.getElementById("nameid").focus();
+            } else if (file === undefined) {
+                alert("please upload image");
+            } else if (file !== undefined) {
+                let type = file.type;
+                let size = file.size;
+                let v = type.split("/");
+                if (v[0] === 'image') {
+                    if (['png','jpeg','jpg','PNG','JPEG','JPG'].indexOf(v[1]) >= 0) {
+                        if (size > 2000000) {
+                            alert("Less than 2 MB are allowed");
+                        } else {
+                            alert("sucess");
+                            return true;
+                        }
+                    } else {
+                        alert("Only GIF format is allowed");
+                    }
+                } else {
+                    alert("Only Images are allowed");
+                }
+
+            } else {
+                return true;
+            }
+
+
+            return false;
+        }
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>Validation Form</h1>
+    </center>
+    <form enctype="multipart/form-data" onsubmit="return validation()" autocomplete="off">
+        <table align="center" border=1 cellspacing="0" cellpadding="5px" width="50%" height="80%">
+            <th colspan="2">Registration Form</th>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" id="nameid"> </td>
+            </tr>
+            <tr>
+                <td>Image:</td>
+                <td> <input type="file" id="upload"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    <button type="button" onclick="validation()">Submit</button> <button>Reset</button>
+                </td>
+
+            </tr>
+        </table>
+
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validation6</title>
+    <script>
+        function validate(){
+            var v =document.getElementById("txtid").value;
+            document.getElementById("head1").innerHTML=v.replace(/hello/gi,"nithin");
+        }
+        function validate2(){
+            document.getElementById("head1").style.color = "red"
+        }
+        function validate3(){
+            document.getElementById("head1").style.color = "black"
+        }
+    </script>
+    
+
+</head>
+<body>
+    <input type="text" id="txtid" onkeyup="validate()">
+    <h1 id="head1" onmouseover="validate2()" onmouseleave="validate3()"></h1>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validation() {
+
+           
+            let a = document.getElementById("inputid").value
+            console.log(a);
+            let c = a.length;
+            let b = (c - 1) / 2;
+            console.log(b);
+            counts=0;
+            count=0;
+            
+            for (let i = 0; i < c / 2; i++) {
+                if (a[i] !== a[c - 1 - i]) {
+                    counts++;
+                } else {
+                    count++;
+                }
+
+            }
+            if(counts>0){
+                alert("NOT A PALINDROME");
+            }else{
+                alert("IS A PALINDROME");
+            }
+
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="inputid">
+    <button type="button" onclick="validation()">check! </button>
+
+</body>
+
+</html>

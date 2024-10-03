@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validate1(){
+            var a=document.getElementById("vala").value;
+            var b=document.getElementById("valb").value;
+            var c=Number(a)+Number(b);
+            // if(a===Number and b====Number){
+            //     var c=Number(a)+Number(b);
+                
+            // }else{
+            //     var c="please enter numbers"
+            // }
+            // alert(c);
+            
+            // if(c=="Naan"){
+            //     var c="please"
+                
+            // }else{
+            //     var c=Number(a)+Number(b);
+            // }
+            document.getElementById("sid").innerHTML=c;
+
+            
+        }
+        function validate2(){
+            var a=document.getElementById("vala").value;
+            var b=document.getElementById("valb").value;
+            var c=Number(a)*Number(b);
+            document.getElementById("sid").innerHTML=c;
+        }
+        function validate3(){
+            var a=document.getElementById("vala").value;
+            var b=document.getElementById("valb").value;
+            var c=Number(a)/Number(b);
+            document.getElementById("sid").innerHTML=c;
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <p><input  type="text" id="vala"> <input  type="text" id="valb">
+        <button onclick="validate1()">Addition</button>
+        <button onclick="validate2()">multiplication</button>
+        <button onclick="validate3()">Division</button>
+
+
+    </p>
+    <h1>Output:<span id="sid"></span></h1>
+
+
+
+</body>
+
+</html>

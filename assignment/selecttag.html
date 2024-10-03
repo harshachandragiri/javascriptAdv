@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function loaddob(){
+            for(let day=1; day<=31;day++){
+                document.getElementById("day").innerHTML+="<option>"+day+"</option>";
+            }
+            for(let month=1;month<=12;month++){
+                document.getElementById("month").innerHTML+="<option>"+month+"</option>";
+
+            }
+            for(let year=1990; year<=2023; year++){
+                document.getElementById("year").innerHTML+="<option>"+year+"</option>";
+            }
+            
+            
+        }
+        function span(){
+            var d=document.getElementById("day").value;
+            var m=document.getElementById("month").value;
+            var y=document.getElementById("year").value
+            if(d===""|| m===""|| y===""){
+                alert("please enter all the fields");
+
+            }else{
+                document.getElementById("sid").innerHTML=d+" - "+m+" - "+y;
+            }
+
+        }
+    </script>
+</head>
+<body onload="loaddob()">
+    <p> D.O.B.</p>
+    <select name="day" id="day" >
+        <option value="">Please select date</option>
+        
+    </select>
+    <select name="month" id="month">
+        <option value="">Please select Month</option>
+        
+    </select>
+    <select name="year" id="year">
+        <option value="">Please select Year</option>
+        
+    </select>
+    <br>
+    <button onclick="span()">Submit</button><span id="sid"></span>
+    
+</body>
+</html>

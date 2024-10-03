@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+    
+    <script>
+        async function formValidation() {
+            let regexName = /^[a-z A-Z]+$/;
+            let regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+            let regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            let name = document.getElementById('nameid').value;
+            let email = document.getElementById('emailid').value;
+            let password = document.getElementById('passid').value;
+            let conformpassword = document.getElementById('confpassid').value;
+
+            
+            if (!regexName.test(name)) {
+                alert("Only charecters are allowed");
+            } else if (!regexEmail.test(email)) {
+                alert("Enter correct email Id")
+            } else if (!regexPassword.test(password)) {
+                alert("Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character")
+            } else if (password !== conformpassword) {
+                alert("Please enter a valid password")
+            }
+            else {
+                let form = document.querySelector('#form');
+                let formData = new FormData(form);
+                let res = await fetch('sub.php', {
+                    method: 'post',
+                    body: formData,
+                    headers: {
+                        
+                    }
+                })
+            }
+
+        }
+        
+    </script>
+    <form id="form">
+        <table  border='1' cellspacing="0" cellpadding="10" width="50%">
+            <tr>
+                <th colspan="2">Registration Form</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type='text' name='name' id='nameid'></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type='text' name='email' id='emailid'></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type='password' name='password' id='passid'></td>
+            </tr>
+            <tr>
+                <td>Conform password</td>
+                <td><input type='password' name='cpassword' id='confpassid'></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right"><button type="button" style="background-color:bisque;" onclick="formValidation()">Submit</button> &nbsp; <button
+                        type="reset"style="background-color:bisque;">Reset</button></td>
+            </tr>
+        </table>
+    </form>
+
+
+
+</body>
+
+</html>

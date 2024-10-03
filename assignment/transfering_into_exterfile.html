@@ -1,0 +1,35 @@
+Name: <input type="text" id="name">
+Email: <input type="text" id="email">
+<button onclick="saveValues()">Enter</button>
+<a href="users.html">Users</a>
+<script>
+    function saveValues() {
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        const v = localStorage.getItem('user');
+        const j = JSON.parse(v);
+        const data = j || [];
+        console.log(data);
+        const z =data;
+        const user = {
+            name,
+            email
+        }
+        localStorage.setItem(name);
+        if (data.length > 0) {
+            data.find((element) => {
+                if (element.name === name && element.email === email) {
+                    alert("Already Exists");
+                } else {
+                    data.push(user);
+                    let str = JSON.stringify(data);
+                    localStorage.setItem('data', str);
+                }
+            })
+        } else {
+            data.push(user);
+            let str = JSON.stringify(data);
+            localStorage.setItem('data', str);
+        }
+    }
+</script>

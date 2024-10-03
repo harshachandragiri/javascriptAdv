@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function validate(){
+            var v=document.getElementById("nameid").value;
+            var l=v.length;
+            if (v==''){
+                alert("enter your name");
+
+            }else if(l<=8){
+                alert("please enter more than 8 letters ");
+
+            }else{
+                alert("success");
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+    <p>Name: <input type="text" name="name" id="nameid"></p>
+    <button onclick="validate()"> click! </button>
+    
+</body>
+</html>

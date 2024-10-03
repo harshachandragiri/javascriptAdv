@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserting_in_table</title>
+    <script>
+        function displayvalues(){
+            
+            const data=[
+                {
+                    firstName:"elon",
+                    lastName:"Musk",
+                    Email:"email@gmail.com",
+                },
+                {
+                    firstName:"elon",
+                    lastName:"Musk",
+                    Email:"email@gmail.com",
+                },
+                {
+                    firstName:"elon",
+                    lastName:"Musk",
+                    Email:"email@gmail.com",
+                },
+                {
+                    firstName:"elon",
+                    lastName:"Musk",
+                    Email:"email@gmail.com",
+                }
+                
+            ];
+                for(let i=0;i<=data.length;i++){
+                    document.getElementById("tabid").innerHTML+="<tr><td>"+data[i].firstName+"</td><td>"+data[i].lastName+"</td><td>"+data[i].Email+"</td></tr>";
+                }
+        }
+    </script>
+</head>
+<body>
+    <table border="1" cellspacing="0" cellpadding="5px" width="50" align="center" id="tabid">
+        <tr >
+            <th colspan="3">
+                EmployeeData
+            </th>
+        </tr>
+        <tr>
+            <td>FirstName</td>
+            <td>LastName</td>
+            <td>Email</td>
+        </tr>
+        
+    </table>
+    <button onclick="displayvalues()">Display</button>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let Api = "https://api.github.com/users/mohammed786";
+            $("#buttonid").click(function () {
+                $.ajax({
+                    url:Api,
+                    beforeSend:function(){
+                        console.log("Loading...........")
+
+                    },
+                    success: function(data){
+                        console.log(data)
+                        for(let key in data){
+                            $("#tableid").append("<tr><td>"+key+"</td><td>"+data[key]+"</td><tr>")
+                        }
+                    }
+                })
+
+
+
+            })
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <table id="tableid">
+        <tr>
+            <th>keys</th>
+            <th>Values</th>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+
+
+    </table>
+    <button id="buttonid">Click!</button>
+
+</body>
+
+</html>

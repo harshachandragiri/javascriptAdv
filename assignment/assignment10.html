@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function selectAll() {
+            var sub = document.getElementsByClassName("sub");
+            var subject = document.getElementById("subject").checked;
+            for (let i = 0; i < sub.length; i++) {
+                if (subject === true) {
+                    sub[i].checked = true;
+
+                } else {
+                    sub[i].checked = false;
+                }
+
+            }
+
+
+        }
+        function checkcon() {
+            var s = document.getElementsByClassName("sub");
+            var count = 0;
+            for (let i = 0; i < s.length; i++) {
+                if (s[i].checked == false) {
+                    count++;
+                }
+            }
+            if (count > 0) {
+                document.getElementById("subject").checked = false;
+
+            } else {
+                document.getElementById("subject").checked = true;
+            }
+        }
+        
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <p>Subject:<input type="checkbox" id="subject" onclick="selectAll()">All </p>
+    <p><input type="checkbox" class="sub" onclick="checkcon()">css </p>
+    <p><input type="checkbox" class="sub" onclick="checkcon()">js </p>
+    <p><input type="checkbox" class="sub" onclick="checkcon()">mysql </p>
+    <p><input type="checkbox" class="sub" onclick="checkcon()">jquery </p>
+
+</body>
+
+</html>

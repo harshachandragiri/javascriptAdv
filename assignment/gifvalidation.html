@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function verify() {
+            var file = document.getElementById('upload').files[0];
+            var type = file.type;
+            var size = file.size;
+            console.log(file);
+            console.log(size);
+            var v = type.split("/");
+            console.log(v);
+            if (v[0] === 'image') {
+                if (['gif', 'GIF'].indexOf(v[1]) === 0) {
+                    if(size > 2000){
+                        alert("Less than 2 MB are allowed");
+                    }else {
+                        alert("sucess");
+                    }
+                }else {
+                    alert("Only GIF format is allowed");
+                }
+            } else {
+                alert("Only Images are allowed");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form enctype="multipart/form-data">
+        <input id="upload" type="file">
+        <button type="button" onclick="verify()">Submit!</button>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
